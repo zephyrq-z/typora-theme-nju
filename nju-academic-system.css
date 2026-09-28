@@ -908,7 +908,7 @@ body .activity-item.active::before {
 /* ---------- Ornaments ---------- */
 
 #write::before {
-  filter: invert(1) brightness(1.05);
+  filter: brightness(1.65) saturate(1.04);
   opacity: 0.94;
 }
 
