@@ -12,8 +12,8 @@
   --nju-purple-border: rgba(106, 0, 95, 0.18);
 
   /* Paper and ink */
-  --paper-color: #FDFBF7;
-  --canvas-color: #FDFBF7;
+  --paper-color: #EBE7E0;
+  --canvas-color: #EBE7E0;
   --text-color: #221F22;
   --muted-color: #6B6268;
   --line-color: rgba(34, 31, 34, 0.16);
@@ -647,10 +647,10 @@ header,
 
 /* Let HorseMD's chrome use the NJU palette while the paper stays consistent. */
 body.light {
-  --bg: #FDFBF7;
-  --bg-elevated: #FDFBF7;
+  --bg: #EBE7E0;
+  --bg-elevated: #EBE7E0;
   --bg-sidebar: #F7F4F2;
-  --bg-editor: #FDFBF7;
+  --bg-editor: #EBE7E0;
   --bg-activity: #F1EDEA;
   --accent: #6A005F;
   --accent-strong: #4C0044;
@@ -749,7 +749,7 @@ body.hm-has-custom-theme .outline-item.active .outline-twisty {
 body.hm-has-custom-theme .gsearch-input-wrap {
   margin: 10px 10px 4px;
   border-color: rgba(106, 0, 95, 0.18);
-  background: #FDFBF7;
+  background: #EBE7E0;
 }
 
 body.hm-has-custom-theme .gsearch-input {
