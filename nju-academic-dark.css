@@ -1,0 +1,286 @@
+/*
+ * NJU Academic — dark academic variant
+ * Built on the light theme, with a calmer night paper and clearer page edges.
+ */
+
+@import url("./nju-academic.css");
+
+:root {
+  --paper-color: #1D1915;
+  --canvas-color: #1D1915;
+  --text-color: #EDE7EB;
+  --muted-color: #B1A6AF;
+  --line-color: rgba(237, 231, 235, 0.18);
+  --rule-color: rgba(237, 231, 235, 0.26);
+  --selection-color: rgba(155, 62, 143, 0.34);
+  --highlight-color: #7B3A5D;
+  --mark-text-color: #FFF7FA;
+
+  --blockquote-bg: rgba(155, 62, 143, 0.10);
+  --code-bg: #211C21;
+  --table-header-bg: rgba(155, 62, 143, 0.15);
+  --table-stripe-bg: rgba(155, 62, 143, 0.045);
+  --kbd-bg: #282228;
+  --meta-bg: #201B20;
+  --nju-purple-border: rgba(155, 62, 143, 0.34);
+
+  --side-bar-bg-color: #171310;
+  --side-bar-text-color: #D7CDD2;
+  --control-text-color: #A49AA0;
+  --active-file-bg-color: rgba(155, 62, 143, 0.24);
+  --active-file-text-color: #F8DFF5;
+  --item-hover-bg-color: rgba(155, 62, 143, 0.14);
+  --window-border: 1px solid rgba(237, 231, 235, 0.14);
+}
+
+/* ---------- Night paper ---------- */
+
+#write {
+  margin: 48px auto 64px;
+  padding: 86px 56px 56px;
+  background: var(--paper-color);
+  border: 1px solid rgba(237, 231, 235, 0.10);
+  box-shadow:
+    0 0 0 1px rgba(237, 231, 235, 0.035),
+    0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+@media screen and (max-width: 760px) {
+  #write {
+    margin: 24px auto 32px;
+    padding: 64px 24px 32px;
+  }
+}
+
+/* ---------- Ornaments ---------- */
+
+#write::before {
+  filter: invert(1) brightness(1.05);
+  opacity: 0.94;
+}
+
+#write::after {
+  filter: brightness(1.75) saturate(0.92);
+  opacity: 0.94;
+}
+
+/* ---------- HorseMD dark chrome ---------- */
+
+body.dark {
+  --bg: #1D1915;
+  --bg-elevated: #1D1915;
+  --bg-sidebar: #171310;
+  --bg-editor: #1D1915;
+  --bg-activity: #14110C;
+  --accent: #C77BB8;
+  --accent-strong: #F4DAF0;
+  --accent-soft: rgba(155, 62, 143, 0.20);
+  --accent-glow: rgba(155, 62, 143, 0.26);
+  --hover: rgba(155, 62, 143, 0.12);
+  --active: rgba(155, 62, 143, 0.20);
+  --hover-elevated: rgba(155, 62, 143, 0.14);
+  --border: rgba(237, 231, 235, 0.16);
+  --border-soft: rgba(237, 231, 235, 0.10);
+}
+
+body.hm-has-custom-theme .sidebar,
+body.hm-has-custom-theme .outline,
+body.hm-has-custom-theme .gsearch {
+  background: var(--bg-sidebar);
+  color: #D7CDD2;
+}
+
+body.hm-has-custom-theme .sidebar-head,
+body.hm-has-custom-theme .panel-head {
+  border-bottom-color: rgba(155, 62, 143, 0.18);
+}
+
+body.hm-has-custom-theme .sidebar-title {
+  color: #F4DAF0;
+}
+
+body.hm-has-custom-theme .tree-row {
+  color: #D7CDD2;
+}
+
+body.hm-has-custom-theme .tree-row:hover {
+  background: rgba(155, 62, 143, 0.12);
+  color: #F4DAF0;
+}
+
+body.hm-has-custom-theme .tree-row.active {
+  background: rgba(155, 62, 143, 0.20);
+  color: #F4DAF0;
+  box-shadow: inset 2px 0 0 #C77BB8;
+}
+
+body.hm-has-custom-theme .tree-row.active .tree-icon,
+body.hm-has-custom-theme .tree-chevron {
+  color: #D993C7;
+}
+
+body.hm-has-custom-theme .outline-item {
+  color: #D7CDD2;
+}
+
+body.hm-has-custom-theme .outline-item:hover {
+  background: rgba(155, 62, 143, 0.12);
+  color: #F4DAF0;
+}
+
+body.hm-has-custom-theme .outline-item.active {
+  background: rgba(155, 62, 143, 0.20);
+  color: #F4DAF0;
+  box-shadow: inset 2px 0 0 #C77BB8;
+}
+
+body.hm-has-custom-theme .outline-item.active .outline-twisty {
+  color: #D993C7;
+}
+
+body.hm-has-custom-theme .gsearch-input-wrap {
+  background: #1D1915;
+  border-color: rgba(155, 62, 143, 0.28);
+}
+
+body.hm-has-custom-theme .gsearch-input {
+  color: #EDE7EB;
+}
+
+body.hm-has-custom-theme .gsearch-file-head:hover,
+body.hm-has-custom-theme .gsearch-item:hover,
+body.hm-has-custom-theme .gsearch-item.active {
+  background: rgba(155, 62, 143, 0.12);
+}
+
+body.hm-has-custom-theme .gsearch-fname,
+body.hm-has-custom-theme .gsearch-line {
+  color: #D7CDD2;
+}
+
+body.hm-has-custom-theme .gsearch-line mark {
+  background: rgba(155, 62, 143, 0.28);
+  color: #F4DAF0;
+}
+
+body.hm-has-custom-theme .activity-bar {
+  background: #14110C;
+  border-right-color: rgba(155, 62, 143, 0.18);
+}
+
+body.hm-has-custom-theme .activity-item {
+  color: #A49AA0;
+}
+
+body.hm-has-custom-theme .activity-item:hover {
+  background: rgba(155, 62, 143, 0.14);
+  color: #D993C7;
+}
+
+body.hm-has-custom-theme .activity-item.active {
+  color: #F4DAF0;
+}
+
+body.hm-has-custom-theme .activity-item.active::before {
+  background: #C77BB8;
+}
+
+/* ---------- Night text ---------- */
+
+#write h1 {
+  color: #F4DAF0;
+}
+
+#write h2 {
+  color: #F4DAF0;
+  border-bottom-color: var(--nju-purple-border);
+}
+
+#write h3 {
+  color: #D993C7;
+}
+
+#write strong {
+  color: #F4DAF0;
+}
+
+#write blockquote {
+  color: #E3D9DD;
+}
+
+#write code,
+#write kbd {
+  color: #F3C7EA;
+  border-color: rgba(155, 62, 143, 0.34);
+  background: rgba(155, 62, 143, 0.12);
+}
+
+#write pre,
+#write .md-fences {
+  background: var(--code-bg);
+  border-color: rgba(237, 231, 235, 0.15);
+  color: #EDE7EB;
+}
+
+#write th {
+  color: #F4DAF0;
+}
+
+#write a {
+  color: #D993C7;
+  border-bottom-color: rgba(217, 147, 199, 0.42);
+}
+
+#write a:hover {
+  color: #F4DAF0;
+  border-bottom-color: #F4DAF0;
+}
+
+#write img {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+pre.md-meta-block {
+  color: #F4DAF0;
+}
+
+/* Code palette tuned for the dark paper */
+.cm-s-inner .cm-keyword { color: #D98CC7 !important; }
+.cm-s-inner .cm-string,
+.cm-s-inner .cm-string-2 { color: #DCC47A !important; }
+.cm-s-inner .cm-number,
+.cm-s-inner .cm-atom { color: #88D4DF !important; }
+.cm-s-inner .cm-comment { color: #9A9096 !important; }
+.cm-s-inner .cm-def,
+.cm-s-inner .cm-variable-2 { color: #A9B8F8 !important; }
+.cm-s-inner .cm-type,
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-property { color: #CBA6F1 !important; }
+.cm-s-inner .cm-operator { color: #DAD2D6 !important; }
+.cm-s-inner .cm-tag { color: #F096D8 !important; }
+.cm-s-inner .cm-meta { color: #C2AFC2 !important; }
+.cm-s-inner .cm-link { color: #D993C7 !important; }
+
+/* ---------- Print ---------- */
+
+@media print {
+  :root {
+    --paper-color: #fff;
+    --text-color: #000;
+    --muted-color: #333;
+    --code-bg: #f6f6f6;
+    --blockquote-bg: #f7f7f7;
+    --table-header-bg: #f2eef2;
+  }
+
+  html,
+  body,
+  #write {
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+}
