@@ -1,6 +1,6 @@
 /*
  * NJU Academic — dark academic variant
- * Built on the light theme, with a calmer night paper and clearer page edges.
+ * Built on the light theme, with a calm, edgeless night paper.
  */
 
 @import url("./nju-academic.css");
@@ -39,10 +39,8 @@
   margin: 48px auto 64px;
   padding: 86px 56px 56px;
   background: var(--paper-color);
-  border: 1px solid rgba(237, 231, 235, 0.10);
-  box-shadow:
-    0 0 0 1px rgba(237, 231, 235, 0.035),
-    0 24px 70px rgba(0, 0, 0, 0.22);
+  border: 0;
+  box-shadow: none;
 }
 
 @media screen and (max-width: 760px) {
