@@ -17,10 +17,30 @@ A calm, paper-first academic theme for Typora/Horse, built around Nanjing Univer
 
 For local development, keep the folder in this repository and symlink or copy it into the themes directory.
 
+## Follow the system theme
+
+HorseMD does not load custom theme files when its appearance mode is set to **Follow System**. For that mode, use the generated custom CSS snippet instead:
+
+```bash
+pbcopy < nju-academic-system.css
+```
+
+Then paste it into **Settings → Appearance → Custom CSS** while theme mode is set to **Follow System**.
+
+`nju-academic-system.css` is self-contained:
+
+- base rules provide the light `#EBE7E0` paper;
+- `@media (prefers-color-scheme: dark)` re-tunes the same rules for the `#1D1915` night paper;
+- the official logo and motto are embedded as data URLs, because custom snippets cannot rely on relative URLs from the themes folder;
+- print/export remains light.
+
+Keep `nju-academic.css` and `nju-academic-dark.css` for manual theme selection. Do not put `nju-academic-system.css` inside the HorseMD themes folder; it is intended for the custom CSS editor, not the theme picker.
+
 ## Files
 
 - `nju-academic.css` — light theme
 - `nju-academic-dark.css` — dark theme
+- `nju-academic-system.css` — self-contained custom CSS snippet for Follow System mode
 - `assets/nju-logo-combined.png` — combined NJU logo and wordmark
 - `assets/nju-motto-purple.png` — purple NJU motto ornament
 
