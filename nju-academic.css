@@ -1,0 +1,849 @@
+/*
+ * NJU Academic — Typora theme
+ * Light academic variant
+ */
+
+:root {
+  /* NJU official purple family */
+  --nju-purple: #6A005F;
+  --nju-purple-deep: #4C0044;
+  --nju-purple-soft: #9B3E8F;
+  --nju-purple-wash: #F8F1F6;
+  --nju-purple-border: rgba(106, 0, 95, 0.18);
+
+  /* Paper and ink */
+  --paper-color: #FDFBF7;
+  --canvas-color: #FDFBF7;
+  --text-color: #221F22;
+  --muted-color: #6B6268;
+  --line-color: rgba(34, 31, 34, 0.16);
+  --rule-color: rgba(34, 31, 34, 0.24);
+  --selection-color: rgba(106, 0, 95, 0.16);
+  --highlight-color: #F9E58A;
+  --mark-text-color: #241E19;
+
+  /* Surfaces */
+  --blockquote-bg: #F8F5F3;
+  --code-bg: #F7F4F2;
+  --table-header-bg: #F8F1F6;
+  --table-stripe-bg: rgba(106, 0, 95, 0.025);
+  --kbd-bg: #F3EFEC;
+  --meta-bg: #F7F4F2;
+
+  /* UI */
+  --side-bar-bg-color: #F7F4F2;
+  --nju-logo-height: 47px;
+  --nju-sidebar-top-extra: calc(var(--nju-logo-height) * 1.25);
+  --nju-sidebar-item-height: 30px;
+  --nju-sidebar-radius: 5px;
+  --side-bar-text-color: #3A353A;
+  --control-text-color: #6E656B;
+  --control-text-hover-color: var(--nju-purple);
+  --active-file-bg-color: rgba(106, 0, 95, 0.10);
+  --active-file-text-color: var(--nju-purple-deep);
+  --item-hover-bg-color: rgba(106, 0, 95, 0.07);
+  --select-text-bg-color: var(--selection-color);
+  --search-select-bg-color: rgba(249, 229, 138, 0.85);
+  --meta-content-color: #7B7278;
+  --window-border: 1px solid rgba(34,31,34,0.12);
+
+  /* Typography */
+  --font-family: "Avenir Next", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Times New Roman", serif;
+  --heading-family: "Avenir Next", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --code-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- Page ---------- */
+
+html {
+  background: var(--canvas-color);
+}
+
+body {
+  margin: 0;
+  background: var(--canvas-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#write {
+  box-sizing: border-box;
+  width: min(100% - 128px, 920px);
+  margin: 0 auto 64px;
+  padding: 132px 64px 72px;
+  background: var(--paper-color);
+  box-shadow: none;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 16.5px;
+  line-height: 1.68;
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 760px) {
+  #write {
+    width: calc(100% - 32px);
+    padding: 48px 28px 42px;
+    font-size: 15.5px;
+  }
+}
+
+
+/* Page ornaments: official logo and motto */
+#write::before {
+  content: "";
+  position: fixed;
+  top: 54px;
+  left: 96px;
+  z-index: 2;
+  width: 142px;
+  height: 47px;
+  background-image: url("./assets/nju-logo-combined.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+  opacity: 0.98;
+  pointer-events: none;
+}
+
+#write::after {
+  content: "";
+  position: fixed;
+  right: 24px;
+  bottom: 36px;
+  z-index: 2;
+  width: 106px;
+  height: 45px;
+  background-image: url("./assets/nju-motto-purple.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+/* ---------- Headings ---------- */
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-family: var(--heading-family);
+  color: var(--text-color);
+  line-height: 1.34;
+  letter-spacing: 0.015em;
+  text-align: left;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+#write h1 {
+  position: relative;
+  margin: 0 0 2.4rem;
+  padding-bottom: 1.5rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: var(--nju-purple-deep);
+}
+
+
+#write h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 88px;
+  height: 3px;
+  transform: translateX(-50%);
+  background: var(--nju-purple);
+  border-radius: 2px;
+}
+
+#write h2 {
+  margin: 2.6rem 0 1rem;
+  padding-bottom: 0.45rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--nju-purple-deep);
+  border-bottom: 1px solid var(--nju-purple-border);
+}
+
+#write h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.18rem;
+  font-weight: 650;
+  color: var(--nju-purple);
+}
+
+#write h4 {
+  margin: 1.6rem 0 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+#write h5,
+#write h6 {
+  margin: 1.3rem 0 0.5rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--muted-color);
+}
+
+#write h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Text ---------- */
+
+#write p {
+  margin: 0 0 0.65rem;
+  orphans: 2;
+  widows: 2;
+}
+
+#write strong {
+  color: var(--nju-purple-deep);
+  font-weight: 700;
+}
+
+#write em {
+  font-style: italic;
+}
+
+#write a {
+  color: var(--nju-purple);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(106, 0, 95, 0.3);
+}
+
+#write a:hover {
+  color: var(--nju-purple-deep);
+  border-bottom-color: var(--nju-purple-deep);
+}
+
+#write mark {
+  color: var(--mark-text-color);
+  background: var(--highlight-color);
+  padding: 0.05em 0.18em;
+  border-radius: 0.12em;
+}
+
+#write sup,
+#write sub {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+#write ul,
+#write ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+#write li {
+  margin-bottom: 0.06rem;
+  line-height: 1.68;
+}
+
+#write li p {
+  margin-bottom: 0;
+  line-height: 1.68;
+}
+
+#write task-list-item {
+  list-style: none;
+}
+
+#write input[type="checkbox"] {
+  accent-color: var(--nju-purple);
+  margin-right: 0.45em;
+}
+
+#write hr {
+  height: 1px;
+  margin: 3.2rem 0;
+  border: 0;
+  background: linear-gradient(to right, transparent, var(--rule-color), transparent);
+}
+
+/* ---------- Blockquote ---------- */
+
+#write blockquote {
+  margin: 1.2rem 0;
+  padding: 1.15rem 1.35rem;
+  background: var(--blockquote-bg);
+  border-left: 4px solid var(--nju-purple);
+  border-radius: 0 4px 4px 0;
+  color: #403A40;
+}
+
+#write blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+#write blockquote strong {
+  color: var(--nju-purple-deep);
+}
+
+/* ---------- Code ---------- */
+
+#write code,
+#write kbd,
+#write samp,
+#write pre {
+  font-family: var(--code-family);
+  font-size: 0.88em;
+  tab-size: 4;
+}
+
+#write code,
+#write kbd {
+  padding: 0.12em 0.38em;
+  border-radius: 4px;
+  border: 1px solid var(--nju-purple-border);
+  background: rgba(106, 0, 95, 0.055);
+  color: var(--nju-purple-deep);
+}
+
+#write kbd {
+  background: var(--kbd-bg);
+  border-bottom-width: 2px;
+  border-color: rgba(34,31,34,0.16);
+}
+
+#write pre,
+#write .md-fences {
+  margin: 1.1rem 0;
+  padding: 1.05rem 1.25rem;
+  background: var(--code-bg);
+  border: 1px solid rgba(34,31,34,0.1);
+  border-left: 4px solid var(--nju-purple);
+  border-radius: 4px;
+  color: #333033;
+  line-height: 1.62;
+  overflow-x: auto;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+#write pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+.md-fences .cm-s-inner.CodeMirror,
+.md-fences.md-focus .cm-s-inner.CodeMirror {
+  padding: 0;
+  background: transparent;
+  font-family: var(--code-family);
+}
+
+.md-fences .CodeMirror-lines {
+  padding-left: 0;
+}
+
+.CodeMirror-gutters {
+  border-right: 1px solid rgba(34,31,34,0.12);
+  background: transparent;
+}
+
+.CodeMirror-linenumber {
+  color: rgba(106,0,95,0.55);
+}
+
+/* Syntax palette: restrained, purple-led */
+.cm-s-inner .cm-keyword { color: #7A2E76 !important; }
+.cm-s-inner .cm-string,
+.cm-s-inner .cm-string-2 { color: #6D5F13 !important; }
+.cm-s-inner .cm-number,
+.cm-s-inner .cm-atom { color: #1F5F6B !important; }
+.cm-s-inner .cm-comment { color: #736D71 !important; font-style: italic; }
+.cm-s-inner .cm-def,
+.cm-s-inner .cm-variable-2 { color: #3C4C9E !important; }
+.cm-s-inner .cm-type,
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-property { color: #5A3A85 !important; }
+.cm-s-inner .cm-operator { color: #454145 !important; }
+.cm-s-inner .cm-tag { color: #9B3E8F !important; }
+.cm-s-inner .cm-meta { color: #816D7D !important; }
+.cm-s-inner .cm-link { color: #6A005F !important; text-decoration: underline; }
+.cm-s-inner .CodeMirror-matchingbracket {
+  color: var(--nju-purple-deep) !important;
+  text-decoration: underline;
+}
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 2px solid var(--nju-purple);
+}
+
+/* ---------- Tables ---------- */
+
+#write table {
+  width: 100%;
+  margin: 1.3rem 0;
+  border-collapse: collapse;
+  font-size: 0.93em;
+  line-height: 1.55;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+#write thead {
+  background: var(--table-header-bg);
+}
+
+#write th {
+  padding: 0.7rem 0.75rem;
+  border-top: 2px solid var(--nju-purple);
+  border-bottom: 1px solid rgba(34,31,34,0.2);
+  font-family: var(--heading-family);
+  font-weight: 650;
+  color: var(--nju-purple-deep);
+  text-align: left;
+}
+
+#write td {
+  padding: 0.62rem 0.75rem;
+  border-bottom: 1px solid var(--line-color);
+}
+
+#write tbody tr:nth-child(even) {
+  background: var(--table-stripe-bg);
+}
+
+#write tbody tr:last-child td {
+  border-bottom: 2px solid var(--nju-purple-border);
+}
+
+/* ---------- Media ---------- */
+
+#write img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(34,31,34,0.09);
+}
+
+#write p:has(> img:only-child),
+#write p:has(> span.md-image:only-child) {
+  text-align: center;
+}
+
+#write figcaption,
+#write p.caption {
+  margin-top: -0.65rem;
+  color: var(--muted-color);
+  font-size: 0.88em;
+  text-align: center;
+}
+
+/* ---------- Front matter / TOC ---------- */
+
+pre.md-meta-block {
+  margin: 0 0 3.4rem;
+  padding: 1.35rem 1.6rem;
+  background: var(--meta-bg);
+  border-left: 4px solid var(--nju-purple);
+  border-radius: 0 4px 4px 0;
+  color: var(--nju-purple-deep);
+  font-family: var(--code-family);
+  font-size: 0.84em;
+  line-height: 1.55;
+}
+
+.md-toc,
+.md-toc-content {
+  margin: 0 0 3rem;
+  font-family: var(--font-family);
+}
+
+.md-toc-content {
+  border-left: 3px solid var(--nju-purple-border);
+  padding-left: 1.25rem;
+}
+
+.md-toc-item a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.md-toc-item a:hover {
+  color: var(--nju-purple);
+}
+
+.md-toc-h1 { font-weight: 650; }
+.md-toc-h2 { font-weight: 550; }
+.md-toc-h3 { font-weight: 400; color: var(--muted-color); }
+
+/* ---------- Footnotes and math ---------- */
+
+.md-def-name,
+.md-def-footnote,
+.md-footnote {
+  color: var(--nju-purple);
+}
+
+#write .mathjax-exps,
+#write .md-inline-math script,
+#write .md-block-math script {
+  font-family: "Times New Roman", "STIX Two Math", serif;
+}
+
+/* ---------- Interface ---------- */
+
+#typora-sidebar,
+#sidebar,
+.side-bar,
+.outline-content {
+  font-family: var(--heading-family);
+}
+
+#typora-sidebar,
+#sidebar,
+.side-bar {
+  box-sizing: border-box;
+  background: var(--side-bar-bg-color);
+  color: var(--side-bar-text-color);
+  padding-top: var(--nju-sidebar-top-extra);
+}
+
+#file-library,
+#outline-content,
+.sidebar-content {
+  box-sizing: border-box;
+  background: var(--side-bar-bg-color);
+  color: var(--side-bar-text-color);
+}
+
+.sidebar-tabs {
+  background: transparent;
+  color: var(--control-text-color);
+}
+
+.sidebar-tabs .sidebar-tab,
+.sidebar-tabs [role="tab"],
+.sidebar-tab {
+  color: var(--control-text-color);
+  transition: color 0.16s ease, background-color 0.16s ease;
+}
+
+.sidebar-tabs .sidebar-tab:hover,
+.sidebar-tab:hover {
+  color: var(--nju-purple);
+  background: var(--item-hover-bg-color);
+}
+
+.sidebar-tabs .sidebar-tab.active,
+.sidebar-tab.active {
+  color: var(--nju-purple-deep);
+  background: var(--active-file-bg-color);
+  box-shadow: inset 2px 0 0 var(--nju-purple);
+}
+
+#file-library-search-panel {
+  background: var(--side-bar-bg-color);
+  border-bottom: 1px solid var(--nju-purple-border);
+}
+
+#file-library-search-input {
+  color: var(--side-bar-text-color);
+  border-color: var(--nju-purple-border);
+  border-radius: 3px;
+}
+
+#file-library-search-input:focus {
+  border-color: var(--nju-purple-soft);
+  box-shadow: 0 0 0 2px rgba(106, 0, 95, 0.10);
+}
+
+.file-tree-node,
+.file-library-node,
+.outline-content li {
+  line-height: 1.45;
+}
+
+.file-node-content,
+.pin-outline .outline-item,
+.outline-item {
+  min-height: var(--nju-sidebar-item-height);
+  margin: 0;
+  border-radius: var(--nju-sidebar-radius);
+  color: var(--side-bar-text-color);
+  transition: background-color 0.14s ease, color 0.14s ease;
+}
+
+.file-node-content {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.file-node-title,
+.outline-label {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.file-node-content:hover,
+.outline-item:hover {
+  background: var(--item-hover-bg-color);
+  color: var(--nju-purple-deep);
+}
+
+.file-node-content.active,
+.outline-item-active,
+.pin-outline .outline-active {
+  background: var(--active-file-bg-color);
+  color: var(--active-file-text-color);
+  box-shadow: inset 2px 0 0 var(--nju-purple);
+}
+
+.file-node-icon,
+.outline-expander {
+  color: var(--nju-purple-soft);
+}
+
+.file-node-icon.fa-folder::before,
+.file-node-expanded > .file-node-content > .file-node-icon.fa-folder::before {
+  color: var(--nju-purple-soft);
+}
+
+.file-library-file-node .file-node-title-ext-part {
+  color: var(--muted-color);
+}
+
+.megamenu-menu,
+header,
+#megamenu-content {
+  background: var(--paper-color);
+  color: var(--text-color);
+}
+
+.megamenu-menu-header {
+  border: none;
+  color: var(--text-color);
+}
+
+.md-search-hit {
+  background: var(--selection-color);
+}
+
+/* ---------- HorseMD left panels ---------- */
+
+/* Let HorseMD's chrome use the NJU palette while the paper stays consistent. */
+body.light {
+  --bg: #FDFBF7;
+  --bg-elevated: #FDFBF7;
+  --bg-sidebar: #F7F4F2;
+  --bg-editor: #FDFBF7;
+  --bg-activity: #F1EDEA;
+  --accent: #6A005F;
+  --accent-strong: #4C0044;
+  --accent-soft: rgba(106, 0, 95, 0.10);
+  --accent-glow: rgba(106, 0, 95, 0.16);
+  --hover: rgba(106, 0, 95, 0.06);
+  --active: rgba(106, 0, 95, 0.12);
+  --hover-elevated: rgba(106, 0, 95, 0.07);
+  --border: rgba(34, 31, 34, 0.15);
+  --border-soft: rgba(34, 31, 34, 0.10);
+}
+
+/* The three left panels (files, outline, search) clear the fixed NJU crest. */
+body.hm-has-custom-theme .sidebar,
+body.hm-has-custom-theme .outline,
+body.hm-has-custom-theme .gsearch {
+  box-sizing: border-box;
+  padding-top: var(--nju-sidebar-top-extra);
+}
+
+body.hm-has-custom-theme .sidebar,
+body.hm-has-custom-theme .outline,
+body.hm-has-custom-theme .gsearch {
+  background: var(--bg-sidebar);
+  color: #3A353A;
+}
+
+body.hm-has-custom-theme .sidebar-head,
+body.hm-has-custom-theme .panel-head {
+  padding: 12px 10px 8px 14px;
+  border-bottom: 1px solid rgba(106, 0, 95, 0.10);
+}
+
+body.hm-has-custom-theme .sidebar-title {
+  color: #4C0044;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+body.hm-has-custom-theme .tree {
+  padding: 6px 8px 14px;
+}
+
+body.hm-has-custom-theme .tree-row {
+  height: 28px;
+  border-radius: 5px;
+  color: #3A353A;
+  font-size: 13.2px;
+  line-height: 1.45;
+}
+
+body.hm-has-custom-theme .tree-row:hover {
+  background: rgba(106, 0, 95, 0.07);
+  color: #4C0044;
+}
+
+body.hm-has-custom-theme .tree-row.active {
+  background: rgba(106, 0, 95, 0.11);
+  color: #4C0044;
+  box-shadow: inset 2px 0 0 #6A005F;
+}
+
+body.hm-has-custom-theme .tree-row.active .tree-icon,
+body.hm-has-custom-theme .tree-chevron {
+  color: #9B3E8F;
+}
+
+body.hm-has-custom-theme .outline-list {
+  padding: 6px 8px 14px;
+}
+
+body.hm-has-custom-theme .outline-item {
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #3A353A;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+body.hm-has-custom-theme .outline-item:hover {
+  background: rgba(106, 0, 95, 0.07);
+  color: #4C0044;
+}
+
+body.hm-has-custom-theme .outline-item.active {
+  background: rgba(106, 0, 95, 0.11);
+  color: #4C0044;
+  box-shadow: inset 2px 0 0 #6A005F;
+}
+
+body.hm-has-custom-theme .outline-item.active .outline-twisty {
+  color: #9B3E8F;
+}
+
+body.hm-has-custom-theme .gsearch-input-wrap {
+  margin: 10px 10px 4px;
+  border-color: rgba(106, 0, 95, 0.18);
+  background: #FDFBF7;
+}
+
+body.hm-has-custom-theme .gsearch-input {
+  color: #221F22;
+}
+
+body.hm-has-custom-theme .gsearch-file-head:hover,
+body.hm-has-custom-theme .gsearch-item:hover,
+body.hm-has-custom-theme .gsearch-item.active {
+  background: rgba(106, 0, 95, 0.07);
+}
+
+body.hm-has-custom-theme .gsearch-fname,
+body.hm-has-custom-theme .gsearch-line {
+  color: #3A353A;
+}
+
+body.hm-has-custom-theme .gsearch-line mark {
+  background: rgba(106, 0, 95, 0.14);
+  color: #4C0044;
+}
+
+body.hm-has-custom-theme .activity-bar {
+  background: #F1EDEA;
+  border-right: 1px solid rgba(106, 0, 95, 0.12);
+}
+
+body.hm-has-custom-theme .activity-item {
+  color: #6B6268;
+}
+
+body.hm-has-custom-theme .activity-item:hover {
+  background: rgba(106, 0, 95, 0.08);
+  color: #6A005F;
+}
+
+body.hm-has-custom-theme .activity-item.active {
+  color: #4C0044;
+}
+
+body.hm-has-custom-theme .activity-item.active::before {
+  background: #6A005F;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(106,0,95,0.22);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(106,0,95,0.35);
+}
+
+/* ---------- Print / Export ---------- */
+
+@media print {
+  :root {
+    --canvas-color: #fff;
+    --paper-color: #fff;
+  }
+  html,
+  body,
+  #write {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 10.5pt;
+    line-height: 1.65;
+  }
+  #write h1:first-of-type::before {
+    width: 42px;
+    height: 52px;
+  }
+  #write h1 {
+    font-size: 1.65rem;
+    margin-bottom: 2rem;
+  }
+  #write pre,
+  #write table,
+  #write img,
+  #write blockquote {
+    break-inside: avoid;
+  }
+  #write a {
+    color: #4C0044;
+  }
+}
