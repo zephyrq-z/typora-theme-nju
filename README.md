@@ -10,8 +10,13 @@ A calm, paper-first academic theme for Typora/Horse, built around Nanjing Univer
 
 ## Install
 
-1. Copy the `nju-academic` folder into your Typora/Horse themes directory:
-   - macOS: `/Users/<you>/Library/Application Support/horse/themes/`
+Download the theme package from the [latest release](https://github.com/zephyrq-z/typora-theme-nju/releases/latest), then:
+
+1. Unzip it and copy the `nju-academic` folder into your Typora/Horse themes directory:
+   - HorseMD (macOS): `/Users/<you>/Library/Application Support/horse/themes/`
+   - Typora (macOS): `/Users/<you>/Library/Application Support/abnerworks.Typora/themes/`
+   - Typora (Windows): `%APPDATA%\Typora\themes\`
+   - Typora (Linux): `~/.config/Typora/themes/`
 2. Restart Typora/Horse.
 3. Select **NJU Academic** or **NJU Academic Dark** from the theme menu.
 
